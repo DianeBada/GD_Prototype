@@ -11,6 +11,7 @@ public class AttackWeaponSystem : MonoBehaviour
     {
         if(col.gameObject.tag == "player1")
         {
+            gameObject.SetActive(false);
             // add this value in the attackValue of player1
             Player1Controller.attackValue = attackValue;
             Debug.Log(Player1Controller.attackValue);

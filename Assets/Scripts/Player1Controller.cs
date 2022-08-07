@@ -21,6 +21,7 @@ public class Player1Controller : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public bool p1Turn = false;
+    bool closeToWeapon;
 
     public Player1Controller player1Controller;
 
@@ -29,6 +30,11 @@ public class Player1Controller : MonoBehaviour
 
     float minDist = 1;
     float dist;
+    float weaponDist;
+    float weaponMinDist = 0;
+
+    GameObject weaponPlaceholder;
+
     
     // Start is called before the first frame update
     void Start()
@@ -103,5 +109,25 @@ public class Player1Controller : MonoBehaviour
             // set the new defensevalue to the defenseackValue of the weapon
         }
     }
+
+    void CloseToWeapon()
+    {
+
+        //if (p1Turn == true)
+       
+            if(player1.transform.position == GameObject.FindGameObjectWithTag("attackWeapon").transform.position)
+            {
+                closeToWeapon = true;
+                //GameObject.FindGameObjectWithTag("attackWeapon").SetActive(false);
+                Debug.Log("I just collided with this ");
+
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                p1Attack();
+            }
+        }
+    }
+
 }
 
