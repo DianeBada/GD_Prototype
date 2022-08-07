@@ -35,7 +35,7 @@ public class Player1Controller : MonoBehaviour
 
     GameObject weaponPlaceholder;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +44,7 @@ public class Player1Controller : MonoBehaviour
 
     public void p1Attack()
     {
-        if(player2Health.currentHealth >0)
+        if (player2Health.currentHealth > 0)
         {
             player2Health.TakeDamage(attValue);
         }
@@ -77,19 +77,29 @@ public class Player1Controller : MonoBehaviour
     void Update()
     {
         //if (p1Turn == true)
-        dist = Vector2.Distance(player1.transform.position, player2.transform.position);
-            if (dist <= minDist)
-        {
+        //dist = Vector2.Distance(player1.transform.position, player2.transform.position);
+        //    if (dist <= minDist)
 
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    p1Attack();
+        //}
+        if (player2.transform.position == gameObject.transform.position)
+        {
+            player2.SetActive(false);
+            Debug.Log("same position");
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("attacking player");
                 p1Attack();
             }
+            attValue = attackValue;
+            defValue = defenseValue;
+
         }
-        attValue = attackValue;
-        defValue = defenseValue;
 
     }
+
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "attackWeapon")
@@ -99,7 +109,7 @@ public class Player1Controller : MonoBehaviour
             // retrieve the attack points and add it to the attackStat
             // set the new attackvalue to the attackValue of the weapon
         }
-        else if (col.gameObject.tag == "defenseWeapon")
+         if (col.gameObject.tag == "defenseWeapon")
         {
             if (player1Health.currentHealth > 0)
             {
@@ -107,6 +117,19 @@ public class Player1Controller : MonoBehaviour
             }
             // retrieve the defense points and add it to the defenseStat
             // set the new defensevalue to the defenseackValue of the weapon
+        }
+        if(col.gameObject.tag == "player2")
+        {
+            Debug.Log("next to player2" + col);
+           
+                   
+
+            
+
+
+
+
+
         }
     }
 
@@ -128,6 +151,8 @@ public class Player1Controller : MonoBehaviour
             }
         }
     }
+
+    
 
 }
 

@@ -71,7 +71,7 @@ MonoBehaviour:
   player2: {fileID: 6193837392589134968, guid: 3d475655af2de8841a12ad98351f9c15, type: 3}
   p1Turn: 0
   player1Controller: {fileID: -4708191679001358402}
-  player2Health: {fileID: 0}
+  player2Health: {fileID: -7492750222310589913, guid: 3d475655af2de8841a12ad98351f9c15, type: 3}
   player1Health: {fileID: -4855461192313284505}
 --- !u!114 &-4855461192313284505
 MonoBehaviour:
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92265d4c35e0ed942bf2ab46e5c2d3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHealth: 100
 --- !u!61 &-4835009764804757629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.011918068, y: -0.011917591}

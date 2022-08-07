@@ -19,6 +19,8 @@ public class AttackWeaponSystem : MonoBehaviour
         }
         else if (col.gameObject.tag == "player2")
         {
+            gameObject.SetActive(false);
+
             Player2Controller.attackValue = attackValue;
             Debug.Log(Player2Controller.attackValue);
 
