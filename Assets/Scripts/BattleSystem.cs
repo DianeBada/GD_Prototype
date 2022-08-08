@@ -13,7 +13,18 @@ public class BattleSystem : MonoBehaviour
 
 	public GridManager gridManager;
 
-	
+	bool p1Turn;
+	bool p2Turn;
+
+	public GameObject p1TurnPic;
+	public GameObject p2TurnPic;
+
+	public GameObject p1WaitPic;
+	public GameObject p2WaitPic;
+
+
+
+
 
 	Unit player1Unit;
 	Unit player2Unit;
@@ -49,10 +60,28 @@ public class BattleSystem : MonoBehaviour
 		
 	}
 
-    
-     
-		
-    
+
+	void Update()
+	{
+		if(p1Turn == true)
+        {
+			p1TurnPic.SetActive(true);
+			p2WaitPic.SetActive(true);
+
+			p1WaitPic.SetActive(false);
+			p2TurnPic.SetActive(false);
+        }
+         else if(p2Turn == true)
+        {
+			p2TurnPic.SetActive(true);
+			p1WaitPic.SetActive(true);
+
+			p1TurnPic.SetActive(false);
+			p2WaitPic.SetActive(false);
+        }
+	}
+
+
 
     IEnumerator SetupBattle()
 	{
@@ -86,7 +115,6 @@ public class BattleSystem : MonoBehaviour
 		p2DefButton.onClick.AddListener(OnHealP2Button);
 
 
-		player2HUD.SetHUD(player2Unit);
 
 
 		yield return new WaitForSeconds(2f);
@@ -97,6 +125,8 @@ public class BattleSystem : MonoBehaviour
 	void Player1Turn()
 	{
 		Debug.Log("Player 1's turn");
+		p1Turn = true;
+		p2Turn = false;
 	}
 	IEnumerator Player1Attack()
 	{
@@ -122,6 +152,8 @@ public class BattleSystem : MonoBehaviour
 	void Player2Turn()
 	{
 		Debug.Log("Player 2's turn");
+		p1Turn = false;
+		p2Turn = true;
 
 
 		//yield return new WaitForSeconds(1f);
@@ -145,21 +177,21 @@ public class BattleSystem : MonoBehaviour
 	}
 	IEnumerator Player2Attack()
 	{
-		bool isDead = player2Unit.TakeDamage(player2Unit.damage);
+		bool isp1Dead = player1Unit.TakeDamage(player2Unit.damage);
 
 		player1HUD.SetHP(player1Unit.currentHP);
 		Debug.Log("attacked succesfully");
 
 		yield return new WaitForSeconds(2f);
 
-		if (isDead)
+		if (isp1Dead)
 		{
 			state = BattleState.WON;
 			EndBattle();
 		}
 		else
 		{
-			state = BattleState.PLAYER2TURN;
+			state = BattleState.PLAYER1TURN;
 			Player1Turn();
 		}
 	}
@@ -169,10 +201,10 @@ public class BattleSystem : MonoBehaviour
 	{
 		if(state == BattleState.WON)
 		{
-			dialogueText.text = "You won the battle!";
+			Debug.Log("You win!");
 		} else if (state == BattleState.LOST)
 		{
-			dialogueText.text = "You were defeated.";
+			Debug.Log("You lose");
 		}
 	}
 
@@ -183,7 +215,7 @@ public class BattleSystem : MonoBehaviour
 		player1Unit.Heal(5);
 
 		player1HUD.SetHP(player1Unit.currentHP);
-		dialogueText.text = "You feel renewed strength!";
+		Debug.Log("You feel renewed");
 
 		yield return new WaitForSeconds(2f);
 
@@ -195,7 +227,8 @@ public class BattleSystem : MonoBehaviour
 		player2Unit.Heal(5);
 
 		player2HUD.SetHP(player2Unit.currentHP);
-		Debug.Log("You feel restrenghtened");
+		Debug.Log("You feel renewed");
+
 		yield return new WaitForSeconds(2f);
 
 		state = BattleState.PLAYER1TURN;
@@ -223,7 +256,7 @@ public class BattleSystem : MonoBehaviour
 		if (state != BattleState.PLAYER2TURN)
 			return;
 
-		StartCoroutine(Player1Attack());
+		StartCoroutine(Player2Attack());
 	}
 
 	public void OnHealP2Button()
@@ -231,7 +264,7 @@ public class BattleSystem : MonoBehaviour
 		if (state != BattleState.PLAYER2TURN)
 			return;
 
-		StartCoroutine(PlayerHeal());
+		StartCoroutine(Player2Heal());
 	}
 
 }
