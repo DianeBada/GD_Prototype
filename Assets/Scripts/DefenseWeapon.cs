@@ -11,6 +11,8 @@ public class DefenseWeapon : MonoBehaviour
     {
         if (col.gameObject.tag == "player1")
         {
+            gameObject.SetActive(false);
+
             // add this value in the attackValue of player1
             Player1Controller.defenseValue = defenseValue;
             Debug.Log(Player1Controller.defenseValue);
@@ -18,8 +20,11 @@ public class DefenseWeapon : MonoBehaviour
         }
         if (col.gameObject.tag == "player2")
         {
+            gameObject.SetActive(false);
+
             // add this value in the attackValue of player1
             Player2Controller.defenseValue = defenseValue;
+
             Debug.Log(Player2Controller.defenseValue);
 
 

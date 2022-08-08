@@ -77,28 +77,21 @@ public class Player1Controller : MonoBehaviour
     void Update()
     {
         //if (p1Turn == true)
-        //dist = Vector2.Distance(player1.transform.position, player2.transform.position);
-        //    if (dist <= minDist)
+        dist = Vector2.Distance(player1.transform.position, player2.transform.position);
+        if (dist <= minDist)
+            Debug.Log("player 1 is close to player2");
 
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    p1Attack();
-        //}
-        if (player2.transform.position == gameObject.transform.position)
-        {
-            player2.SetActive(false);
-            Debug.Log("same position");
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("attacking player");
                 p1Attack();
             }
             attValue = attackValue;
             defValue = defenseValue;
 
+
         }
 
-    }
+    
 
     public void OnTriggerEnter2D(Collider2D col)
     {
@@ -109,8 +102,10 @@ public class Player1Controller : MonoBehaviour
             // retrieve the attack points and add it to the attackStat
             // set the new attackvalue to the attackValue of the weapon
         }
-         if (col.gameObject.tag == "defenseWeapon")
+        else if (col.gameObject.tag == "defenseWeapon")
         {
+            Debug.Log("I just collided with this " + col);
+
             if (player1Health.currentHealth > 0)
             {
                 player1Health.AddHealth(defValue);
@@ -118,9 +113,17 @@ public class Player1Controller : MonoBehaviour
             // retrieve the defense points and add it to the defenseStat
             // set the new defensevalue to the defenseackValue of the weapon
         }
-        if(col.gameObject.tag == "player2")
+        else if(col.gameObject.tag == "player2")
         {
             Debug.Log("next to player2" + col);
+            {
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("Attacking!");
+                    p1Attack();
+                    
+                }
+            }
            
                    
 

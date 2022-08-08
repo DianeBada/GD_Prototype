@@ -440,9 +440,10 @@ GameObject:
   - component: {fileID: 8179444437875922249}
   - component: {fileID: 4371878129680553127}
   - component: {fileID: 5117601194427451602}
+  - component: {fileID: 296667836255675280}
   m_Layer: 0
   m_Name: Item Two
-  m_TagString: Untagged
+  m_TagString: defenseWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -490,3 +491,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolTip: {fileID: 4641048735379952929}
+--- !u!114 &296667836255675280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154424882026539332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb333263ffaec2a47a98c92ac296c225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defense: 5
+  defenseValue: 5

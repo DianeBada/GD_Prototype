@@ -13,7 +13,11 @@ public class GridManager : MonoBehaviour
     [SerializeField] private GameObject itemTwoPrefab;
     [SerializeField] private GameObject itemThreePrefab;
 
-    [SerializeField] private Transform cam;
+    [SerializeField]
+    Canvas canvas;
+ 
+
+    [SerializeField] public Transform cam;
 
     private Dictionary<Vector2, Tile> tiles;
 
@@ -36,10 +40,10 @@ public class GridManager : MonoBehaviour
                 
             }
         }
-        var spawnedPlayerOne = Instantiate(playerOnePrefab, new Vector3(0,4,-2), Quaternion.identity);
+        var spawnedPlayerOne = Instantiate(playerOnePrefab, new Vector3(0,4,-1), Quaternion.identity);
         spawnedPlayerOne.name = $"Player One";
 
-        var spawnedPlayerTwo = Instantiate(playerTwoPrefab, new Vector3(11,4,-2), Quaternion.identity);
+        var spawnedPlayerTwo = Instantiate(playerTwoPrefab, new Vector3(11,4,-1), Quaternion.identity);
         spawnedPlayerTwo.name = $"Player Two";
 
         var spawnedItemOne = Instantiate(itemOnePrefab, new Vector3(7, 5, -1), Quaternion.identity);
@@ -52,6 +56,9 @@ public class GridManager : MonoBehaviour
         spawnedItemThree.name = $"Item Three";
 
         cam.transform.position = new Vector3((float)width / 2 - 0.5f, (float)height / 2 - 0.5f,-10);
+
+        Canvas gameCanvas = Instantiate(canvas, canvas.transform);
+
     }
 
     public Tile GetTileAtPosition(Vector2 pos)
@@ -59,4 +66,5 @@ public class GridManager : MonoBehaviour
         if (tiles.TryGetValue(pos, out var tile)) return tile;
         return null;
     }
+
 }

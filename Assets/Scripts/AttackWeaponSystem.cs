@@ -6,6 +6,7 @@ public class AttackWeaponSystem : MonoBehaviour
 {
     public float damage = 10;
     public float attackValue = 10;
+    Renderer rend;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
