@@ -8,6 +8,12 @@ TagManager:
   - player2
   - attackWeapon
   - defenseWeapon
+  - P1BattleHud
+  - P2BattleHud
+  - p2AttButton
+  - p2DefButton
+  - attButton
+  - defButton
   layers:
   - Default
   - TransparentFX

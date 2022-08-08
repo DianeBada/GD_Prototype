@@ -14,11 +14,11 @@ public class GridManager : MonoBehaviour
     [SerializeField] private GameObject itemThreePrefab;
 
     [SerializeField]
-    Canvas canvas;
- 
+    public GameObject canvas;
 
-    [SerializeField] public Transform cam;
 
+
+    public Camera cam;
     private Dictionary<Vector2, Tile> tiles;
 
     void Start()
@@ -40,11 +40,11 @@ public class GridManager : MonoBehaviour
                 
             }
         }
-        var spawnedPlayerOne = Instantiate(playerOnePrefab, new Vector3(0,4,-1), Quaternion.identity);
-        spawnedPlayerOne.name = $"Player One";
+        //var spawnedPlayerOne = Instantiate(playerOnePrefab, new Vector3(0, 4, -1), Quaternion.identity);
+        //spawnedPlayerOne.name = $"Player One";
 
-        var spawnedPlayerTwo = Instantiate(playerTwoPrefab, new Vector3(11,4,-1), Quaternion.identity);
-        spawnedPlayerTwo.name = $"Player Two";
+        //var spawnedPlayerTwo = Instantiate(playerTwoPrefab, new Vector3(11, 4, -1), Quaternion.identity);
+        //spawnedPlayerTwo.name = $"Player Two";
 
         var spawnedItemOne = Instantiate(itemOnePrefab, new Vector3(7, 5, -1), Quaternion.identity);
         spawnedItemOne.name = $"Item One";
@@ -56,8 +56,8 @@ public class GridManager : MonoBehaviour
         spawnedItemThree.name = $"Item Three";
 
         cam.transform.position = new Vector3((float)width / 2 - 0.5f, (float)height / 2 - 0.5f,-10);
-
-        Canvas gameCanvas = Instantiate(canvas, canvas.transform);
+        GameObject gameCanvas = Instantiate(canvas, canvas.transform.parent);
+        gameCanvas.name = $"Canvas";
 
     }
 
