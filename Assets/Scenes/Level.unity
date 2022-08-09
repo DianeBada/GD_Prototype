@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369424053}
   - component: {fileID: 369424054}
+  - component: {fileID: 369424055}
   m_Layer: 0
   m_Name: Grid Manager
   m_TagString: GameController
@@ -175,8 +176,29 @@ MonoBehaviour:
   itemOnePrefab: {fileID: 5670940699025110520, guid: 135a70e7c7caae24fb4a0600f48a4bfa, type: 3}
   itemTwoPrefab: {fileID: 7154424882026539332, guid: aa47b1d951a9dbe49943e697761141a2, type: 3}
   itemThreePrefab: {fileID: 7883550059964880295, guid: 33026b9a397eabe4380e5b6fa52453ac, type: 3}
+  itemFourPrefab: {fileID: 7883550059964880295, guid: 834118ca7b2167142a4b105dbc4cc2f2, type: 3}
+  itemFivePrefab: {fileID: 7154424882026539332, guid: c2953197b7269d44d8c2e8590131de38, type: 3}
+  itemSixPrefab: {fileID: 7154424882026539332, guid: efaa7a5bded75c046a48fca475150392, type: 3}
   canvas: {fileID: 9211358534479777746, guid: 85c5b8c1eba073b428dbdc4d014d595a, type: 3}
   cam: {fileID: 519420031}
+--- !u!114 &369424055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369424051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873c29ebc6f477a48a4cbd84410d8e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  num1: 0
+  num2: 0
+  num3: 0
+  num4: 0
+  num5: 0
+  num6: 0
 --- !u!1001 &454785147
 PrefabInstance:
   m_ObjectHideFlags: 0
