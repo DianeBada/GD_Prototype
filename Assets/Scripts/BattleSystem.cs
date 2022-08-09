@@ -26,8 +26,8 @@ public class BattleSystem : MonoBehaviour
 
 
 
-	Unit player1Unit;
-	Unit player2Unit;
+	public Unit player1Unit;
+	public Unit player2Unit;
 
 	public Text dialogueText;
 
@@ -38,7 +38,6 @@ public class BattleSystem : MonoBehaviour
 	Button defButton;
 	Button p2AttButton;
 	Button p2DefButton;
-
 
 
 
@@ -212,7 +211,7 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator PlayerHeal()
 	{
-		player1Unit.Heal(5);
+		player1Unit.Heal(player1Unit.healAmm);
 
 		player1HUD.SetHP(player1Unit.currentHP);
 		Debug.Log("You feel renewed");
@@ -224,7 +223,7 @@ public class BattleSystem : MonoBehaviour
 	}
 	IEnumerator Player2Heal()
 	{
-		player2Unit.Heal(5);
+		player2Unit.Heal(player2Unit.healAmm);
 
 		player2HUD.SetHP(player2Unit.currentHP);
 		Debug.Log("You feel renewed");

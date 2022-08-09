@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class DefenseWeapon : MonoBehaviour
 {
-    public float defense = 5;
-    public float defenseValue = 5;
+    public int defenseValue = 5;
+
+    public BattleSystem battleSystem;
+
+    void Awake()
+    {
+        battleSystem = GameObject.Find("Game Manager").GetComponent<BattleSystem>();
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -13,9 +19,12 @@ public class DefenseWeapon : MonoBehaviour
         {
             gameObject.SetActive(false);
 
+            gameObject.SetActive(false);
             // add this value in the attackValue of player1
-            Player1Controller.defenseValue = defenseValue;
-            Debug.Log(Player1Controller.defenseValue);
+            //Unit.damagePH = damage;
+            battleSystem.player1Unit.healAmm += defenseValue;
+
+            Debug.Log("damage value" + battleSystem.player1Unit.healAmm);
 
         }
         if (col.gameObject.tag == "player2")

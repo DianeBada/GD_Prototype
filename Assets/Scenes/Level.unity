@@ -248,6 +248,18 @@ PrefabInstance:
       propertyPath: gridManager
       value: 
       objectReference: {fileID: 369424054}
+    - target: {fileID: 2403106797393285701, guid: 61157f4c321f0b24196c25caea9162cc, type: 3}
+      propertyPath: player1Unit
+      value: 
+      objectReference: {fileID: -3375877026708336837, guid: c0ea1c32f58624a4ea48dc43c3705b85, type: 3}
+    - target: {fileID: 2403106797393285701, guid: 61157f4c321f0b24196c25caea9162cc, type: 3}
+      propertyPath: player2Unit
+      value: 
+      objectReference: {fileID: -6625228206517632691, guid: 3d475655af2de8841a12ad98351f9c15, type: 3}
+    - target: {fileID: 2403106797393285701, guid: 61157f4c321f0b24196c25caea9162cc, type: 3}
+      propertyPath: defenseWeapon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2403106797393285704, guid: 61157f4c321f0b24196c25caea9162cc, type: 3}
       propertyPath: m_Name
       value: Game Manager

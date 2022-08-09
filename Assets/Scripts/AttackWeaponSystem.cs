@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class AttackWeaponSystem : MonoBehaviour
 {
-    public float damage = 10;
-    public float attackValue = 10;
+    public int damage =10;
     Renderer rend;
+     BattleSystem battleSystem;
+
+
+     void Awake()
+    {
+        battleSystem = GameObject.Find("Game Manager").GetComponent<BattleSystem>();
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -14,15 +20,17 @@ public class AttackWeaponSystem : MonoBehaviour
         {
             gameObject.SetActive(false);
             // add this value in the attackValue of player1
-            Player1Controller.attackValue = attackValue;
-            Debug.Log(Player1Controller.attackValue);
+            //Unit.damagePH = damage;
+            battleSystem.player1Unit.damage += damage;
+
+            Debug.Log("damage value"+battleSystem.player1Unit.damage);
 
         }
         else if (col.gameObject.tag == "player2")
         {
             gameObject.SetActive(false);
 
-            Player2Controller.attackValue = attackValue;
+            //Player2Controller.attackValue = attackValue;
             Debug.Log(Player2Controller.attackValue);
 
 
