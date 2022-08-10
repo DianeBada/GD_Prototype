@@ -21,7 +21,7 @@ public class GridManager : MonoBehaviour
     public Camera cam;
     private Dictionary<Vector2, Tile> tiles;
 
-    void Start()
+    void Awake()
     {
         GenerateGrid();
     }

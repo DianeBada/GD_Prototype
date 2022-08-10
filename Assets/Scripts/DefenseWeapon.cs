@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DefenseWeapon : MonoBehaviour
 {
     public int defenseValue = 5;
+
+    TextMeshProUGUI player1DStat;
+    TextMeshProUGUI player2DStat;
+
 
     public BattleSystem battleSystem;
 
     void Awake()
     {
         battleSystem = GameObject.Find("Game Manager").GetComponent<BattleSystem>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -40,5 +46,14 @@ public class DefenseWeapon : MonoBehaviour
 
 
         }
+
+    }
+
+     void Update()
+    {
+        //player1DStat = GameObject.Find("DefStat").GetComponent<TextMeshProUGUI>();
+        //player2DStat = GameObject.Find("DefStat2").GetComponent<TextMeshProUGUI>();
+        //player1DStat.text = battleSystem.player1Unit.healAmm.ToString();
+        //player2DStat.text = battleSystem.player2Unit.healAmm.ToString();
     }
 }

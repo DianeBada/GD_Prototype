@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYER1TURN, PLAYER2TURN, WON, LOST }
 
@@ -22,6 +24,11 @@ public class BattleSystem : MonoBehaviour
 	public GameObject p1WaitPic;
 	public GameObject p2WaitPic;
 
+
+	TextMeshProUGUI player1AStat;
+	TextMeshProUGUI player2AStat;
+	TextMeshProUGUI player1DStat;
+	TextMeshProUGUI player2DStat;
 
 
 
@@ -47,7 +54,7 @@ public class BattleSystem : MonoBehaviour
 	public BattleState state;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
 		
@@ -78,6 +85,18 @@ public class BattleSystem : MonoBehaviour
 			p1TurnPic.SetActive(false);
 			p2WaitPic.SetActive(false);
         }
+
+		player1AStat = GameObject.Find("AttackStat").GetComponent<TextMeshProUGUI>();
+		player2AStat = GameObject.Find("AttackStat(2)").GetComponent<TextMeshProUGUI>();
+		player1AStat.text = player1Unit.damage.ToString();
+		player2AStat.text = player2Unit.damage.ToString();
+
+		player1DStat = GameObject.Find("DefStat").GetComponent<TextMeshProUGUI>();
+		player2DStat = GameObject.Find("DefStat2").GetComponent<TextMeshProUGUI>();
+		player1DStat.text = player1Unit.healAmm.ToString();
+		player2DStat.text = player2Unit.healAmm.ToString();
+
+
 	}
 
 
@@ -198,11 +217,15 @@ public class BattleSystem : MonoBehaviour
 
 	void EndBattle()
 	{
-		if(state == BattleState.WON)
+		bool player1Dead = player1Unit.TakeDamage(player2Unit.damage);
+		bool player2Dead = player2Unit.TakeDamage(player1Unit.damage);
+		if (state == BattleState.WON && player1Dead) 
 		{
+			SceneManager.LoadScene("GameOver");
 			Debug.Log("You win!");
-		} else if (state == BattleState.LOST)
+		} else if (state == BattleState.WON && player2Dead)
 		{
+			SceneManager.LoadScene("GameOver");
 			Debug.Log("You lose");
 		}
 	}

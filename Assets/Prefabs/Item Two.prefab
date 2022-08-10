@@ -439,8 +439,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8179444437875922249}
   - component: {fileID: 5117601194427451602}
-  - component: {fileID: 296667836255675280}
   - component: {fileID: -5233939725702204324}
+  - component: {fileID: 9049651420765155182}
   m_Layer: 0
   m_Name: Item Two
   m_TagString: defenseWeapon
@@ -478,20 +478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolTip: {fileID: 4641048735379952929}
---- !u!114 &296667836255675280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7154424882026539332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb333263ffaec2a47a98c92ac296c225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defenseValue: 5
-  battleSystem: {fileID: 2403106797393285701, guid: 61157f4c321f0b24196c25caea9162cc, type: 3}
 --- !u!61 &-5233939725702204324
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -518,3 +504,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9049651420765155182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154424882026539332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb333263ffaec2a47a98c92ac296c225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defenseValue: 5
+  battleSystem: {fileID: 2403106797393285701, guid: 61157f4c321f0b24196c25caea9162cc, type: 3}
