@@ -30,8 +30,10 @@ public class AttackWeaponSystem : MonoBehaviour
         {
             gameObject.SetActive(false);
 
-            //Player2Controller.attackValue = attackValue;
-            Debug.Log(Player2Controller.attackValue);
+            battleSystem.player2Unit.damage += damage;
+
+            Debug.Log("damage value" + battleSystem.player2Unit.damage);
+
 
 
             // add this value in the attackValue of player1

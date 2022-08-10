@@ -17,7 +17,6 @@ public class DefenseWeapon : MonoBehaviour
     {
         if (col.gameObject.tag == "player1")
         {
-            gameObject.SetActive(false);
 
             gameObject.SetActive(false);
             // add this value in the attackValue of player1
@@ -32,9 +31,10 @@ public class DefenseWeapon : MonoBehaviour
             gameObject.SetActive(false);
 
             // add this value in the attackValue of player1
-            Player2Controller.defenseValue = defenseValue;
 
-            Debug.Log(Player2Controller.defenseValue);
+            battleSystem.player1Unit.healAmm += defenseValue;
+
+            Debug.Log("damage value" + battleSystem.player2Unit.healAmm);
 
 
 
